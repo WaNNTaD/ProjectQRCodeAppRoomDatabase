@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".MainActivity">>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/userMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:text="User"
+            android:gravity="center"/>
+        <Button
+            android:id="@+id/addItemButton"
+            android:layout_width="170sp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10sp"
+            android:text="Ajouter un appareil"
+            android:visibility="gone"
+            android:clickable="false"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"/>
+        <Button
+            android:id="@+id/scannerButton"
+            android:layout_width="170sp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10sp"
+            android:text="Scanner un appareil"
+            android:visibility="gone"
+            android:clickable="false"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"/>
+        <Button
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10sp"
+            android:text="Liste des utilisateurs"
+            android:visibility="gone"
+            android:clickable="false"
+            android:textColor="@color/white"
+            android:id="@+id/userListButton"
+            android:onClick="toUserList"
+            android:background="@color/purple_500"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/itemView"
+        android:layout_margin="20sp">
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listItem"/>
+    </LinearLayout>
+</LinearLayout>
