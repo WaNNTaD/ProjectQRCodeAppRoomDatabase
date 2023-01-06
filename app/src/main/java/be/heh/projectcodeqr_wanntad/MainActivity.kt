@@ -23,6 +23,7 @@ class MainActivity: Activity() {
     private lateinit var listViewItems : ListView
     private var itemList : List<HighTechItemEntity>?= null
     private var user : UserEntity?=null
+    var userMail : String?=null
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,10 +37,14 @@ class MainActivity: Activity() {
         addItemButton = findViewById(R.id.addItemButton)
 
 
-        val userMail = intent.getStringExtra("USER_MAIL")
+        userMail = intent.getStringExtra("USER_MAIL")
         user = DBBuilder.db.userDao().findByEmail(userMail)
         val userAdmin = intent.getBooleanExtra("USER_ADMIN", false)
         userMailTextView.text = userMail
+
+
+
+
 
         //Boutons pour l'admin
         if(userAdmin == true){
@@ -60,43 +65,27 @@ class MainActivity: Activity() {
             addItemButton!!.setClickable(true)
         }
 
-
         //affichage des items
         itemList = DBBuilder.db.itemDao().getAll()
         val adapter = ItemListAdapter(this, itemList as ArrayList<HighTechItemEntity>)
         listViewItems.adapter = adapter
 
-        listViewItems.setOnItemClickListener { parent, view, i, l ->
-
-            val itemId = listViewItems.getItemIdAtPosition(i) as Int
-            for(item in itemList as ArrayList<HighTechItemEntity>){
-                if(item.id == itemId){
-                    if (userMail != null) {
-                        val intent = Intent(this, be.heh.projectcodeqr_wanntad.hightechitempage.ItemDetails::class.java)
-                        intent.putExtra("USER_MAIL", userMail)
-                        intent.putExtra("ref", item.ref)
-                        startActivity(intent)
-                    }
-                }
-            }
-        }
-
 
         addItemButton.setOnClickListener((View.OnClickListener {
             if (userMail != null) {
-                addItem(userMail,userAdmin)
+                addItem(userMail!!,userAdmin)
             }
         }))
 
         scannerItemButton.setOnClickListener(View.OnClickListener {
             if (userMail != null) {
-                scanItem(userMail,userAdmin)
+                scanItem(userMail!!,userAdmin)
             }
         })
 
         userListButton.setOnClickListener(View.OnClickListener {
             if (userMail != null) {
-                toUserList(userMail,userAdmin)
+                toUserList(userMail!!,userAdmin)
             }
         })
 

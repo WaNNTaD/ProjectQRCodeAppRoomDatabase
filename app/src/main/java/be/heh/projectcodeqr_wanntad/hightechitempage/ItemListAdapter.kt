@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import be.heh.projectcodeqr_wanntad.MainActivity
 import be.heh.projectcodeqr_wanntad.R
 import be.heh.projectcodeqr_wanntad.database.hightechitem.HighTechItemEntity
+import be.heh.projectcodeqr_wanntad.database.user.UserEntity
 
 class ItemListAdapter(
     private val context: Activity,
@@ -36,6 +38,7 @@ class ItemListAdapter(
 
         view.setOnClickListener {
             val intent = Intent(context, ItemDetails::class.java)
+            intent.putExtra("USER_MAIL",(context as MainActivity).userMail)
             intent.putExtra("type", arrayList[position].type)
             intent.putExtra("model", arrayList[position].model)
             intent.putExtra("ref", arrayList[position].ref)

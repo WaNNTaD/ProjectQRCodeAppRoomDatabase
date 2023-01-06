@@ -43,7 +43,7 @@ class RegisterActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this@RegisterActivity, "Information enregistrée avec succès", Toast.LENGTH_SHORT).show()
                 DBBuilder.db.userDao().insertUser(UserEntity(0,user,pass,false))
-                val intent = Intent(applicationContext, MainActivity::class.java)
+                val intent = Intent(applicationContext, WelcomeActivity::class.java)
                 startActivity(intent)
 
             }

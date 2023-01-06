@@ -92,16 +92,15 @@
 
         <Button
             android:id="@+id/modifyButtonId"
-            android:layout_width="335dp"
+            android:layout_width="341dp"
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
+            android:background="@color/purple_500"
             android:clickable="false"
-            android:onClick="modifyButton"
             android:text="Modifier"
             android:textColor="@color/white"
             android:visibility="invisible"
-            tools:ignore="Suspicious0dp"
-            android:background="@color/purple_500"/>
+            tools:ignore="Suspicious0dp" />
 
         <Button
             android:id="@+id/deleteButtonId"
@@ -109,24 +108,25 @@
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
             android:clickable="false"
-            android:onClick="deleteButton"
             android:text="Supprimer appareil"
             android:textColor="@color/white"
             android:visibility="invisible"
             tools:ignore="Suspicious0dp"
             android:background="@color/purple_500"/>
+
     </LinearLayout>
 
     <Button
-        android:layout_width="0sp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10sp"
         android:text="Valider"
+        android:background="@color/purple_500"
         android:visibility="invisible"
         android:clickable="false"
         android:textColor="@color/white"
         android:id="@+id/validateButtonId"
-        android:onClick="validateButton"
         tools:ignore="Suspicious0dp"/>
+
 
 </LinearLayout>
